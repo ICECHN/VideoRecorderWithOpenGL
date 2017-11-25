@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+    >
+
+    <LinearLayout
+        android:id="@+id/layout_btns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="5dp">
+
+        <Button
+            android:id="@+id/btn_toggle"
+            android:layout_height="60dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Start" />
+
+        <Button
+            android:id="@+id/btn_swap"
+            android:layout_height="60dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Swap" />
+        <Button
+            android:id="@+id/btn_flash"
+            android:layout_height="60dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Flash"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp">
+        <com.icechn.videorecorder.ui.AspectTextureView
+            android:id="@+id/preview_textureview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+</RelativeLayout>
