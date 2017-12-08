@@ -2,6 +2,7 @@ package com.icechn.videorecorder.ui;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.os.Bundle;
@@ -17,10 +18,14 @@ import android.widget.Toast;
 import com.icechn.videorecorder.R;
 import com.icechn.videorecorder.client.RecorderClient;
 import com.icechn.videorecorder.core.listener.IVideoChange;
+import com.icechn.videorecorder.filter.image.DrawMultiImageFilter;
+import com.icechn.videorecorder.filter.image.DrawMultiImageFilter.ImageDrawData;
 import com.icechn.videorecorder.filter.softaudiofilter.SetVolumeAudioFilter;
 import com.icechn.videorecorder.model.MediaConfig;
 import com.icechn.videorecorder.model.RecordConfig;
 import com.icechn.videorecorder.model.Size;
+
+import java.util.ArrayList;
 
 
 public class RecordingActivity extends AppCompatActivity implements
@@ -54,6 +59,7 @@ public class RecordingActivity extends AppCompatActivity implements
         findViewById(R.id.btn_flash).setOnClickListener(this);
 
         prepareStreamingClient();
+        onSetFilters();
     }
 
     @Override
@@ -127,6 +133,15 @@ public class RecordingActivity extends AppCompatActivity implements
         mRecorderClient.setVideoChangeListener(this);
 
         mRecorderClient.setSoftAudioFilter(new SetVolumeAudioFilter());
+    }
+
+    protected void onSetFilters() {
+        ArrayList<ImageDrawData> infos = new ArrayList<>();
+        ImageDrawData data = new ImageDrawData();
+        data.resId = R.drawable.t;
+        data.rect = new Rect(100, 100, 238, 151);
+        infos.add(data);
+        mRecorderClient.setHardVideoFilter(new DrawMultiImageFilter(this, infos));
     }
 
     @Override

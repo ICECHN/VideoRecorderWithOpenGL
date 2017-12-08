@@ -110,7 +110,7 @@ public class DrawMultiImageFilter extends BaseHardVideoFilter {
         GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, targetFrameBuffer);
         GLES20.glUseProgram(glProgram);
         GLES20.glUniform4f(glImageRectLoc, rectF.left, rectF.top, rectF.right, rectF.bottom);
-        GLES20.glUniform1f(glImageAngelLoc, (float)(30.0f*Math.PI/180));
+//        GLES20.glUniform1f(glImageAngelLoc, (float)(30.0f*Math.PI/180));//用来更新旋转角度的
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, cameraTexture);
         GLES20.glUniform1i(glCamTextureLoc, 0);
