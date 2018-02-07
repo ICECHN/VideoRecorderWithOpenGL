@@ -39,6 +39,11 @@
             android:screenOrientation="portrait"
             android:hardwareAccelerated="true"
             android:theme="@style/StreamingTheme" />
+        <activity
+            android:name="com.icechn.videorecorder.ui.RecordingActivity2"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="true"
+            android:theme="@style/StreamingTheme" />
     </application>
 
 </manifest>

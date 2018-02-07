@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp">
+        <com.icechn.videorecorder.ui.AspectTextureView
+            android:id="@+id/preview_textureview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_btns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="5dp">
+
+        <Button
+            android:id="@+id/btn_cap"
+            android:layout_height="80dp"
+            android:layout_width="80dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="cap" />
+
+        <Button
+            android:id="@+id/btn_del"
+            android:layout_height="80dp"
+            android:layout_width="80dp"
+            android:gravity="center"
+            android:layout_marginLeft="12dp"
+            android:text="del" />
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_height="80dp"
+            android:layout_width="80dp"
+            android:gravity="center"
+            android:layout_marginRight="12dp"
+            android:layout_alignParentRight="true"
+            android:text="ok" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_above="@+id/layout_btns"
+        android:text="tips"
+        android:textColor="#000000"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="4dp">
+        <ProgressBar
+            android:id="@+id/pb_timeline"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            style="@android:style/Widget.ProgressBar.Horizontal"/>
+        <View
+            android:id="@+id/divide_view"
+            android:layout_width="2dp"
+            android:layout_height="4dp"
+            android:background="#ffffff"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/timeview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="12dp"
+        android:gravity="right"
+        android:text="0s"/>
+
+
+    <Button
+        android:id="@+id/btn_swap"
+        android:layout_height="60dp"
+        android:layout_width="60dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Swap" />
+    <Button
+        android:id="@+id/btn_flash"
+        android:layout_height="60dp"
+        android:layout_width="60dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/btn_swap"
+        android:text="Flash"
+        android:visibility="gone"/>
+
+</RelativeLayout>

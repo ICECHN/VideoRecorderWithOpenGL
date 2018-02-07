@@ -9,9 +9,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.icechn.videorecorder.R;
 import com.icechn.videorecorder.ui.RecordingActivity;
+import com.icechn.videorecorder.ui.RecordingActivity2;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,11 +27,19 @@ public class MainActivity extends AppCompatActivity {
     };
 
     boolean authorized = false;
+    boolean continuedRecord = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        continuedRecord = ((CheckBox)findViewById(R.id.ck_duandian)).isChecked();
+        ((CheckBox)findViewById(R.id.ck_duandian)).setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                continuedRecord = isChecked;
+            }
+        });
         findViewById(R.id.btn_record).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +77,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void start(boolean isSquare) {
         Intent intent;
-        intent = new Intent(MainActivity.this, RecordingActivity.class);
+        if (continuedRecord) {
+            intent = new Intent(MainActivity.this, RecordingActivity2.class);
+        } else {
+            intent = new Intent(MainActivity.this, RecordingActivity.class);
+        }
 
         intent.putExtra(RecordingActivity.IS_SQUARE, isSquare);
         startActivity(intent);

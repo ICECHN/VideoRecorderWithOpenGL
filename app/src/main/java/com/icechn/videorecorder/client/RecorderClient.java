@@ -65,6 +65,13 @@ public class RecorderClient {
     }
 
 
+    public void updatePath(String path) {
+        mediaMakerConfig.saveVideoPath = path;
+    }
+    public String getFilePath() {
+        return mediaMakerConfig.saveVideoEnable ? mediaMakerConfig.saveVideoPath : null;
+    }
+
     /**
      * start recording
      */
